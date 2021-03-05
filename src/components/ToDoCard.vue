@@ -53,6 +53,13 @@ export default {
   },
 
   methods: {
+    removeTask(payload) {
+      this.removerId = payload.removerId;
+      console.log("remove hers " + this.removerId);
+      let idCheck = this.removerId;
+      let removeThisTask = this.listTask;
+      removeThisTask.splice(idCheck,1);
+    },
     checkTask(payload) {
       this.checkedId = payload.checkedId;
       console.log("hellozdrcverv " + this.checkedId);
@@ -178,7 +185,11 @@ export default {
     <!-- <ToDoList/> -->
     <!-- </div> -->
 
-    <ToDoList @checks="checkTask" v-bind:tasks="listTask" />
+    <ToDoList
+      @checks="checkTask"
+      @remover="removeTask"
+      v-bind:tasks="listTask"
+    />
   </div>
 </template>
 
