@@ -11,14 +11,14 @@ export default {
   //   el: "#toDoList",
   data() {
     return {
-    //   unchecked: true,
-    //   isChecked: false,
+      unchecked: true,
+      //   isChecked: false,
 
       //   theTask: "yo",
       //   theTasks: [{ name: "yo" }],
       //   styleH: "display:none;",
 
-    //   taskListTableau: ["yo"],
+      //   taskListTableau: ["yo"],
 
       listTask: [
         // { name: "salut", unchecked: true },
@@ -55,26 +55,38 @@ export default {
   methods: {
     checkTask(payload) {
       this.checkedId = payload.checkedId;
-
-      console.log("index lol " + this.checkedId);
-      let machin = this.listTask[this.checkedId];
-
-      if (!machin.unchecked) {
-        machin.unchecked = true;
-        console.log("machinef= " + machin.unchecked);
+      console.log("hellozdrcverv " + this.checkedId);
+      let idCheck = this.checkedId;
+      let thisTaskCheck = this.listTask[idCheck].uncheckeds;
+      let chose = document.getElementById("laNouvTache" + idCheck);
+      if (!thisTaskCheck) {
+        chose.className = "isCheck";
+        this.listTask[idCheck].uncheckeds = true;
       } else {
-        machin.unchecked = false;
-        console.log("machinef= " + machin.unchecked);
+        chose.className = "isNotCheck";
       }
 
-      console.log(this.listTask);
+      //   this.checkedId = payload.checkedId;
+
+      //   console.log("index lol " + this.checkedId);
+      //   let machin = this.listTask[this.checkedId];
+
+      //   if (!machin.unchecked) {
+      //     machin.unchecked = true;
+      //     console.log("machinef= " + machin.unchecked);
+      //   } else {
+      //     machin.unchecked = false;
+      //     console.log("machinef= " + machin.unchecked);
+      //   }
+
+      //   console.log(this.listTask);
       //   return machin;
     },
     addTask(payload) {
       console.log("payloadp" + payload);
       // let theTask= [{name:payload.theTask,  unchecked:true}]
       this.uncheckeds = false;
-      
+
       this.theTask = payload.theTask;
 
       let machin = this.listTask;
@@ -154,7 +166,7 @@ export default {
 
 <template>
   <div class="toDoCard">
-    <div class="topToDo">
+    <div class="topToDo" v-on:click="checkTask">
       <p>{{ date }}</p>
       <p class="titleCard">VueJs Tutorial ToDo List</p>
       <p>{{ howMany }} tâche(s)</p>
@@ -166,12 +178,18 @@ export default {
     <!-- <ToDoList/> -->
     <!-- </div> -->
 
-    <ToDoList v-bind:tasks="listTask" />
-    <ToDoList @checks="checkTask" />
+    <ToDoList @checks="checkTask" v-bind:tasks="listTask" />
   </div>
 </template>
 
 <style>
+.isCheck {
+  text-decoration: line-through;
+}
+.isNotCheck {
+  text-decoration: none;
+}
+
 .topToDo .titleCard {
   color: #00ff7f;
   font-weight: bold;

@@ -7,8 +7,11 @@ export default {
       //   let y = t
       console.log("yo " + index);
 
-      this.$emit("isChecked", { checkedId: index });
+    // let chose = document.getElementById()
 
+      this.$emit("checks", { checkedId: index });
+
+    //   console.log("yoLO " + index);
       //   console.log("lol");
 
       //   return true;
@@ -21,14 +24,13 @@ export default {
   <div class="toDoList">
     <ul>
       <li v-for="(task, index) in tasks" :key="(task, index)">
-        <div id="laNouvTache">
+        <div  class="nouvTache">
           <input
             type="checkbox"
-            name=""
             id="checkBox"
             v-on:click="checks(index)"
           />
-          <p>hello {{ task.name }}</p>
+          <p v-bind:id="'laNouvTache' + index">hello {{ task.name }}</p>
           <img
             src="https://www.flaticon.com/svg/vstatic/svg/503/503814.svg?token=exp=1614961646~hmac=48e31e64c0044e36827aabfd8336c6d5"
             alt=""
@@ -45,11 +47,11 @@ export default {
 </template>
 
 <style>
-#laNouvTache {
+.nouvTache {
   display: flex;
 }
-#laNouvTache p,
-#laNouvTache textarea {
+.nouvTache p,
+.nouvTache textarea {
   margin: 5px;
 }
 </style>
