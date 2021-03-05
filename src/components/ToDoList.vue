@@ -4,17 +4,7 @@ export default {
   props: ["tasks", "checked"],
   methods: {
     checks(index) {
-      //   let y = t
-      console.log("yo " + index);
-
-      // let chose = document.getElementById()
-
       this.$emit("checks", { checkedId: index });
-
-      //   console.log("yoLO " + index);
-      //   console.log("lol");
-
-      //   return true;
     },
     remover(index) {
       this.$emit("remover", { removerId: index });
@@ -37,12 +27,9 @@ export default {
             style="width: 20px; height: 20px"
             v-on:click="remover(index)"
           />
-
-          <!-- <p v-bind:value=" theTask "></p> -->
         </div>
       </li>
     </ul>
-    <!-- <p>hello{{ theTask }}</p> -->
   </div>
 </template>
 

@@ -3,27 +3,16 @@ export default {
   name: "NewToDo",
   methods: {
     newTask() {
-      let truc = document.getElementById("zoneTxt").value;
-      //   console.log(truc);
-      //  getElementByClass("zoneTxt")
-      if (truc != "") {
-        // console.log("yolo")
-        // let theTask= truc;
+      let txtTask = document.getElementById("zoneTxt").value;
+      if (txtTask != "") {
         document.getElementById("errorTask").innerHTML = "";
-        this.$emit("newTask", { theTask: truc });
+        this.$emit("newTask", { theTask: txtTask });
       } else {
         document.getElementById("errorTask").innerHTML =
           "le nom de la tâche est vide";
-
-        // console.log("hunhunh")
       }
     },
   },
-  //   computed: {
-  //     sendTask() {
-  //       this.taskListTableau[1];
-  //     },
-  //   },
 };
 </script>
 
@@ -32,7 +21,7 @@ export default {
     <div class="topNew">
       <textarea
         id="zoneTxt"
-        name="truc"
+        name="txtTask"
         cols="30"
         rows="1"
         placeholder="Nouvelle tâche..."

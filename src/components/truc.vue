@@ -42,15 +42,11 @@ export default {
     setMessage(payload) {
       this.unchecked = false;
       this.theTask = payload.theTask;
-      console.log(this.theTask);
       this.addTask;
-      //   this.addTask(taskName);
-      //   return taskName;
     },
   },
   computed: {
     addTask: function () {
-      //   document.getElementById("laNouvTache").innerHTML = this.theTask;
       let checkBox = document.createElement("input");
       checkBox.type = "checkbox";
       checkBox.id = "checkBox";
@@ -60,9 +56,7 @@ export default {
       document.getElementById("laNouvTache").appendChild(checkBox);
       document.getElementById("laNouvTache").appendChild(taskName);
 
-      let i = "wesh ";
-      console.log(i);
-      return i;
+      return true;
     },
     date: function () {
       let today = new Date();
@@ -72,8 +66,6 @@ export default {
         `${this.day[today.getMonth()]}` +
         "-" +
         today.getDate();
-
-      console.log(toDate);
 
       return toDate;
     },

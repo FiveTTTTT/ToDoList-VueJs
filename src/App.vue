@@ -1,13 +1,12 @@
 <script lang="ts">
-import ToDoCard from './components/ToDoCard.vue'
+import ToDoCard from "./components/ToDoCard.vue";
 
 export default {
-  name:"App",
-  components:{
-    ToDoCard
-  }
-  
-}
+  name: "App",
+  components: {
+    ToDoCard,
+  },
+};
 </script>
 
 
@@ -18,16 +17,8 @@ export default {
       <router-link to="/about">About</router-link> |
       <router-link to="/HelloWorld">YOLO</router-link>
     </div>
-    <ToDoCard/>
-
-    
-    
-    <!-- <div>{{ toDoCard }}</div> -->
-      
-    <!-- <router-view/> -->
-    <div>
-      
-    </div>
+    <ToDoCard />
+    <div></div>
   </div>
 </template>
 
@@ -38,11 +29,7 @@ export default {
 
 
 <style>
-/* *{
-  margin: 0;
-  padding: 0;
-} */
-body{
+body {
   background-color: #ffd953;
   height: 100vh;
 }
